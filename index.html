@@ -49,13 +49,15 @@ This was very helpful in figuring out the details of how to use getUserMedia:
 				transform: scale(-1, -1);
 			}
 			.videoButton {
-				background-color: #4CAF50;
+				background-color: #0C0C0C;
 				color: white;
-				padding: 5px;
+				height: 40px;
+				width: 40px;
 				text-align: center;
-				font-size: 16px;
+				font-size: 25px;
 				margin: 4px 2px;
 				border-radius: 12px;
+				display: block;
 			}
 		</style>
 		<script>
@@ -174,11 +176,10 @@ This was very helpful in figuring out the details of how to use getUserMedia:
 		<div id="videoContainer" class="videoContainer" style="background-color: black;">
 			<video autoplay="true" id="videoElement" class="videoUnmirrored"></video>
 		</div>
-		<div style="text-align:center; position: relative;">
-			<button class="videoButton" onclick="openFullscreen();">Full Screen</button>
-			<button class="videoButton" onclick="changeInput();">Change Input</button>
-			<button class="videoButton" onclick="setMirrorX();">Mirror Video X</button>
-			<button class="videoButton" onclick="setMirrorY();">Mirror Video Y</button>
+		<div style="position: absolute; bottom: 0px; right: 0px;">
+			<button class="videoButton" onclick="changeInput();">📷</button>
+			<button class="videoButton" onclick="setMirrorX();">⬌</button>
+			<button class="videoButton" onclick="setMirrorY();">⬍</button>
 		</div>
 	</body>
 </html>
