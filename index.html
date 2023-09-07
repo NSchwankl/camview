@@ -11,11 +11,16 @@ This was very helpful in figuring out the details of how to use getUserMedia:
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>FullScreen Viewer</title>
 		<style>
+			div, body {
+				margin: 0px;
+				padding: 0px;
+			}
 			.videoContainer {
 				margin: 0px auto;
-				width: 64%;
+				width: 100%;
 				height: 100%;
-				border: 0px #FFF solid;
+				position: absolute;
+				border: 0px #000000 solid;
 			}
 			.videoUnmirrored {
 				width: 100%;
@@ -163,19 +168,17 @@ This was very helpful in figuring out the details of how to use getUserMedia:
 			}
 		</script>
 	</head>
+
 	<!-- The (very few) HTML elements that make up the page - two buttons and a video preview window. -->
 	<body onload="onPageLoad()">
-		<div style="text-align:center;">
+		<div id="videoContainer" class="videoContainer" style="background-color: black;">
+			<video autoplay="true" id="videoElement" class="videoUnmirrored"></video>
+		</div>
+		<div style="text-align:center; position: relative;">
 			<button class="videoButton" onclick="openFullscreen();">Full Screen</button>
 			<button class="videoButton" onclick="changeInput();">Change Input</button>
 			<button class="videoButton" onclick="setMirrorX();">Mirror Video X</button>
 			<button class="videoButton" onclick="setMirrorY();">Mirror Video Y</button>
-		</div>
-		<div id="videoContainer" class="videoContainer">
-			<video autoplay="true" id="videoElement" class="videoUnmirrored"></video>
-		</div>
-		<div style="text-align:center;">
-			Documentation and source code available on <a href="https://github.com/dhicks6345789/pi-view">Github</a>.
 		</div>
 	</body>
 </html>
