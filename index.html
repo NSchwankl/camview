@@ -22,7 +22,7 @@ This was very helpful in figuring out the details of how to use getUserMedia:
 				height: 100%;
 				background-color: #666;
 			}
-			.videoMirrored {
+			.videoMirroredX {
 				width: 100%;
 				height: 100%;
 				background-color: #666;
@@ -42,14 +42,14 @@ This was very helpful in figuring out the details of how to use getUserMedia:
 		<script>
 			var video;
 			var videoDevices;
-			var videoMirrored;
+			var videoMirroredX;
 			var currentVideoStream;
 			var currentDeviceNumber;
 
 			// This is where main executation starts, when the page is loaded and ready.
 			function onPageLoad() {
 				video = document.querySelector("#videoElement");
-				videoMirrored = false;
+				videoMirroredX = false;
 				currentDeviceNumber = 0;
 				currentVideoStream = "";
 				// Before we can get a list of media devices we need to request media permissions from the browser...
@@ -112,12 +112,12 @@ This was very helpful in figuring out the details of how to use getUserMedia:
 			
 			// Mirror / unmirror the video preview pane.
 			function setMirror() {
-				if (videoMirrored) {
-					videoMirrored = false;
+				if (videoMirroredX) {
+					videoMirroredX = false;
 					video.className = "videoUnmirrored";
 				} else {
-					videoMirrored = true;
-					video.className = "videoMirrored";
+					videoMirroredX = true;
+					video.className = "videoMirroredX";
 				}
 			}
 		</script>
