@@ -153,19 +153,19 @@ Based on: https://github.com/dhicks6345789/pi-view
 					videoMirroredX = false;
 					if (videoMirroredY) {
 						video.className = "videoMirroredY";
-						window.location.search = URLSearchParams(window.location.search).set("flip","Y");
+						window.location.search = new URLSearchParams(window.location.search).set("flip","Y");
 					} else {
 						video.className = "videoUnmirrored";
-						window.location.search = URLSearchParams(window.location.search).set("flip","none");
+						window.location.search = new URLSearchParams(window.location.search).set("flip","none");
 					}
 				} else {
 					videoMirroredX = true;
 					if (videoMirroredY) {
 						video.className = "videoMirroredXY";
-						window.location.search = URLSearchParams(window.location.search).set("flip","XY");
+						window.location.search = new URLSearchParams(window.location.search).set("flip","XY");
 					} else {
 						video.className = "videoMirroredX";
-						window.location.search = URLSearchParams(window.location.search).set("flip","X");
+						window.location.search = new URLSearchParams(window.location.search).set("flip","X");
 					}
 				}
 			}
@@ -175,19 +175,19 @@ Based on: https://github.com/dhicks6345789/pi-view
 					videoMirroredY = false;
 					if (videoMirroredX) {
 						video.className = "videoMirroredX";
-						window.location.search = URLSearchParams(window.location.search).set("flip","X");
+						window.location.search = new URLSearchParams(window.location.search).set("flip","X");
 					} else {
 						video.className = "videoUnmirrored";
-						window.location.search = URLSearchParams(window.location.search).set("flip","none");
+						window.location.search = new URLSearchParams(window.location.search).set("flip","none");
 					}
 				} else {
 					videoMirroredY = true;
 					if (videoMirroredX) {
 						video.className = "videoMirroredXY";
-						window.location.search = URLSearchParams(window.location.search).set("flip","XY");
+						window.location.search = new URLSearchParams(window.location.search).set("flip","XY");
 					} else {
 						video.className = "videoMirroredY";
-						window.location.search = URLSearchParams(window.location.search).set("flip","Y");
+						window.location.search = new URLSearchParams(window.location.search).set("flip","Y");
 					}
 				}
 			}
