@@ -63,7 +63,7 @@ Based on: https://github.com/dhicks6345789/pi-view
 			var videoMirroredX;
 			var currentVideoStream;
 			var currentDeviceNumber;
-			var urlParams
+			const url = new URL(window.location.href);
 
 			function getQueryVariable(variable)
 				{
@@ -162,22 +162,22 @@ Based on: https://github.com/dhicks6345789/pi-view
 					videoMirroredX = false;
 					if (videoMirroredY) {
 						video.className = "videoMirroredY";
-						urlParams.set("flip","Y");
+						url.searchParams.set("flip","Y");
 					} else {
 						video.className = "videoUnmirrored";
-						urlParams.set("flip","none");
+						url.searchParams.set("flip","none");
 					}
 				} else {
 					videoMirroredX = true;
 					if (videoMirroredY) {
 						video.className = "videoMirroredXY";
-						urlParams.set("flip","XY");
+						url.searchParams.set("flip","XY");
 					} else {
 						video.className = "videoMirroredX";
-						urlParams.set("flip","X");
+						url.searchParams.set("flip","X");
 					}
 				}
-				window.location.search = urlParams
+				window.history.pushState({ path: url.href }, '', url.href);
 			}
 
 			function setMirrorY() {
@@ -185,22 +185,22 @@ Based on: https://github.com/dhicks6345789/pi-view
 					videoMirroredY = false;
 					if (videoMirroredX) {
 						video.className = "videoMirroredX";
-						urlParams.set("flip","X");
+						url.searchParams.set("flip","X");
 					} else {
 						video.className = "videoUnmirrored";
-						urlParams.set("flip","none");
+						url.searchParams.set("flip","none");
 					}
 				} else {
 					videoMirroredY = true;
 					if (videoMirroredX) {
 						video.className = "videoMirroredXY";
-						urlParams.set("flip","XY");
+						url.searchParams.set("flip","XY");
 					} else {
 						video.className = "videoMirroredY";
-						urlParams.set("flip","Y");
+						url.searchParams.set("flip","Y");
 					}
 				}
-				window.location.search = urlParams
+				window.history.pushState({ path: url.href }, '', url.href);
 			}
 			
 			function playpause() {
