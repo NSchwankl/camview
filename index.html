@@ -63,6 +63,7 @@ Based on: https://github.com/dhicks6345789/pi-view
 			var videoMirroredX;
 			var currentVideoStream;
 			var currentDeviceNumber;
+			var urlParams
 
 			function getQueryVariable(variable)
 				{
@@ -101,10 +102,17 @@ Based on: https://github.com/dhicks6345789/pi-view
 					console.log(theError);
 				});
 
+				urlParams = new URLSearchParams(window.location.search);
+
 				startOrientation = getQueryVariable("flip");
+				console.log(startOrientation)
 				if (startOrientation != false) {
-					if (startOrientation.includes("X")) {setMirrorX();}
-					if (startOrientation.includes("Y")) {setMirrorY();}
+					if (startOrientation.includes('X')) {
+						setMirrorX();
+					}
+					if (startOrientation.includes('Y')) {
+						setMirrorY();
+					}
 				}
 			}
 			
@@ -122,6 +130,7 @@ Based on: https://github.com/dhicks6345789/pi-view
 					});
 				}
 			}
+
 			
 			// Called when the user clicks the "Full Screen" button.
 			function openFullscreen() {
@@ -153,21 +162,22 @@ Based on: https://github.com/dhicks6345789/pi-view
 					videoMirroredX = false;
 					if (videoMirroredY) {
 						video.className = "videoMirroredY";
-						window.location.search = new URLSearchParams(window.location.search).set("flip","Y");
+						urlParams.set("flip","Y");
 					} else {
 						video.className = "videoUnmirrored";
-						window.location.search = new URLSearchParams(window.location.search).set("flip","none");
+						urlParams.set("flip","none");
 					}
 				} else {
 					videoMirroredX = true;
 					if (videoMirroredY) {
 						video.className = "videoMirroredXY";
-						window.location.search = new URLSearchParams(window.location.search).set("flip","XY");
+						urlParams.set("flip","XY");
 					} else {
 						video.className = "videoMirroredX";
-						window.location.search = new URLSearchParams(window.location.search).set("flip","X");
+						urlParams.set("flip","X");
 					}
 				}
+				window.location.search = urlParams
 			}
 
 			function setMirrorY() {
@@ -175,21 +185,22 @@ Based on: https://github.com/dhicks6345789/pi-view
 					videoMirroredY = false;
 					if (videoMirroredX) {
 						video.className = "videoMirroredX";
-						window.location.search = new URLSearchParams(window.location.search).set("flip","X");
+						urlParams.set("flip","X");
 					} else {
 						video.className = "videoUnmirrored";
-						window.location.search = new URLSearchParams(window.location.search).set("flip","none");
+						urlParams.set("flip","none");
 					}
 				} else {
 					videoMirroredY = true;
 					if (videoMirroredX) {
 						video.className = "videoMirroredXY";
-						window.location.search = new URLSearchParams(window.location.search).set("flip","XY");
+						urlParams.set("flip","XY");
 					} else {
 						video.className = "videoMirroredY";
-						window.location.search = new URLSearchParams(window.location.search).set("flip","Y");
+						urlParams.set("flip","Y");
 					}
 				}
+				window.location.search = urlParams
 			}
 			
 			function playpause() {
